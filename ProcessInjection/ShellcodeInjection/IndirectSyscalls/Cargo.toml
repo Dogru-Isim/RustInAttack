@@ -1,0 +1,16 @@
+cargo-features = ["strip"]
+
+[package]
+name = "ShellcodeInjection"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sysinfo = "0.29"
+rust_syscalls = {git = "https://github.com/janoglezcampos/rust_syscalls", features = ["_INDIRECT_"]}
+base64 = "0.21"
+hex = "0.4"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.0", features = ["winuser"] }
+ntapi = { version = "0.4.0", features = ["impl-default"]}
